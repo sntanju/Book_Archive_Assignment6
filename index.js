@@ -5,14 +5,20 @@ const searchBook = () => {
     .value;
     searchField.value = '';
 
+// Send Error Message For Empty Input Field
+if(searchField === '') {
+    searchResult = 'Please write a name of book';
+}
+
+else {
 // Use API URL 
     const url = `http://openlibrary.org/search.json?q=${searchText}`;
     //console.log(url); 
     fetch(url)
     .then(res => res.json())
     .then(data => displaySearchResult(data.docs))
+    }
 }
-
 // Show Search Result 
 const displaySearchResult = books => {
     //console.log(books);
