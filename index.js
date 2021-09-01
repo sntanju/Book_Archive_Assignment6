@@ -25,12 +25,13 @@ const displaySearchResult = books => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
-        <div onclick="loadBookDetail(${book.idBook})" class="card h-100">
-            <img src=" https://covers.openlibrary.org/b/id/{cover_i}-L.jpg" class="card-img-top" alt="...">
+        <div onclick="loadBookDetail(${book.idBook})" class="card bg-light h-100">
+            <img src=" https://covers.openlibrary.org/b/id/${book?.cover_i}-M.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h3 class="card-title text-primary mb-3">${book.title}</h3>
-              <h4 class="card-text text-success mb-3">${book.author_name}</h4>
-              <h5 class="card-text ">${book.first_publish_year}</h5>
+              <h3 class="card-title text-primary mb-3">${book?.title}</h3>
+              <h4 class="card-text text-success mb-3">${book?.author_name}</h4>
+              <h5 class="card-text text-success">${book?.publisher.slice(0, 5)}</h5>
+              <h5 class="card-text ">${book?.first_publish_year}</h5>
             </div>
           </div>
         `;
