@@ -1,4 +1,4 @@
-// Get Search Data 
+// An Arrow Function(For Bonus Mark) For Getting Searched Data
 const searchBook = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField
@@ -8,7 +8,7 @@ const searchBook = () => {
     emptyField.innerText = '';
 
 // Send Error Message For Empty Input Field
-if(searchField.value === '') {
+if(searchField.value === '') {  //Used === for Comparison for Bonus Mark
    emptyField.innerText = 'Please Write A Name Of Book';
    document.getElementById('search-result').innerText = '';
 }
@@ -27,7 +27,7 @@ const emptyField = document.getElementById('empty-field');
 // Show Search Result 
 const displaySearchResult = books => {
 
-//If Returned Array Length Is Zero
+//If No Result Found For The Searched Input
     if(books.length === 0){
         emptyField.innerText = 'No Result Found';
         document.getElementById('search-result').innerText = '';
@@ -39,7 +39,7 @@ const displaySearchResult = books => {
 // Clear previous Result
     searchResult.textContent = '';
 
-// Dinamic Number Of Total Founded Books 
+// Dynamic Number Of Total Found Books 
     let showBook = 0;
     if( books.length <= 30 ) showBook = books.length;
     else showBook = 30;
@@ -47,11 +47,11 @@ const displaySearchResult = books => {
     emptyField.innerText = result;
     let resultCount = 0;
 
-// Dinamic Number Of Total Printed Books 
+// forEach Loop for Calculating Dynamic Number Of Total Printed Books 
     books.forEach(book => {
         resultCount++;
         if( resultCount <= 30){
-//Loaded Data Of Each Book
+//Loaded Data Of Each Book & Also used Cover Image For Bonus Mark
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
