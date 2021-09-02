@@ -20,10 +20,9 @@ else {
     .then(res => res.json())
     .then(data => displaySearchResult(data.docs))
     }
-   searchField.value = '';   
+    searchField.value = '';   
 }
 const emptyField = document.getElementById('empty-field');
-
 
 // Show Search Result 
 const displaySearchResult = books => {
@@ -39,16 +38,20 @@ const displaySearchResult = books => {
 
 // Clear previous Result
     searchResult.textContent = '';
+
+// Dinamic Number Of Total Founded Books 
     let showBook = 0;
-    if(books.length <= 30 ) showBook = books.length;
+    if( books.length <= 30 ) showBook = books.length;
     else showBook = 30;
     const result = `Showing ${showBook} Book From Search Result ${books.length} Book`;
     emptyField.innerText = result;
     let resultCount = 0;
 
+// Dinamic Number Of Total Printed Books 
     books.forEach(book => {
         resultCount++;
         if( resultCount <= 30){
+//Loaded Data Of Each Book
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
