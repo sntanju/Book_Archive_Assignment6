@@ -4,7 +4,7 @@ const searchBook = () => {
     const searchText = searchField
     .value;
     
-//Clear EmptyField
+// Clear Empty Field
     emptyField.innerText = '';
 
 // Send Error Message For Empty Input Field
@@ -12,10 +12,6 @@ if(searchField.value === '') {
    emptyField.innerText = 'Please write a name of book';
    document.getElementById('search-result').innerText = '';
 }
-
-// else if (searchField.value !== books) {
-//     emptyField.innerText = 'No Rsult Found';
-// }
  
 else {
 // Use API URL 
@@ -28,13 +24,22 @@ else {
 }
 const emptyField = document.getElementById('empty-field');
 
+
 // Show Search Result 
 const displaySearchResult = books => {
-    //console.log(books);
+
+//If Returned Array Length Is Zero
+    if(books.length === 0){
+        emptyField.innerText = 'No Result Found';
+        document.getElementById('search-result').innerText = '';
+    }
+
+    else{
     const searchResult = document.getElementById('search-result');
 
 // Clear previous Result
     searchResult.textContent = '';
+    
     books.forEach(book => {
         //console.log(book);
         const div = document.createElement('div');
@@ -52,5 +57,6 @@ const displaySearchResult = books => {
         `;
         
         searchResult.appendChild(div);
-    })
+        })
+    }
 }
